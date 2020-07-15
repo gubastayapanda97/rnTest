@@ -8,21 +8,21 @@ import styles from './style';
 const Loading = ({isLoading = true}) => {
   const spinValue = new Animated.Value(0);
 
-  const _animate = Animated.timing(spinValue, {
+  const animate = Animated.timing(spinValue, {
     toValue: 1,
     duration: 1000,
     useNativeDriver: false,
   });
 
-  const _animateStart = () =>
-    _animate.start(() => {
+  const animateStart = () =>
+    animate.start(() => {
       spinValue.setValue(0);
-      _animateStart();
+      animateStart();
     });
 
   useEffect(() => {
-    _animateStart();
-    return () => _animate.stop();
+    animateStart();
+    return () => animate.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
