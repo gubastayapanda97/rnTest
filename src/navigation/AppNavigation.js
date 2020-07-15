@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HeaderLeft from './HeaderLeft';
 import DrawerComponent from './DrawerComponent';
+import ModalListScreen from '../screens/ModalListScreen';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ const AppNavigation = () => (
 				component={DrawerComponent}
 				name="Home"
 			/>
+			<Stack.Screen name="ModalList" component={ModalListScreen} />
 		</Stack.Navigator>
 	</NavigationContainer>
 );

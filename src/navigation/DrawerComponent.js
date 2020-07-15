@@ -15,7 +15,7 @@ const CustomDrawerContent = ({...props}) => {
       <DrawerItemList {...props} />
       <DrawerItem
         label="todos"
-        onPress={() => props.navigation.navigate('Home', {todos: true})}
+        onPress={() => props.navigation.navigate('ModalList')}
       />
     </DrawerContentScrollView>
   );
