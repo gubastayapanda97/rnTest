@@ -8,20 +8,21 @@ import styles from './style';
 const Loading = ({isLoading = true}) => {
   const spinValue = new Animated.Value(0);
 
-  const animate = () => {
-    Animated.sequence([
-      Animated.timing(spinValue, {
-        toValue: 1,
-        duration: 1000,
-      }),
-    ]).start(() => {
+  const _animate = Animated.timing(spinValue, {
+    toValue: 1,
+    duration: 1000,
+    useNativeDriver: false,
+  });
+
+  const _animateStart = () =>
+    _animate.start(() => {
       spinValue.setValue(0);
-      animate();
+      _animateStart();
     });
-  };
 
   useEffect(() => {
-    animate();
+    _animateStart();
+    return () => _animate.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -30,14 +31,14 @@ const Loading = ({isLoading = true}) => {
     outputRange: ['0deg', '360deg'],
   });
 
-  return isLoading ? (
+  return (
     <View style={styles.container}>
       <Animated.Image
         style={{...styles.indicatorIcon, transform: [{rotate: spin}]}}
         source={WaitingIndicator}
       />
     </View>
-  ) : null;
+  );
 };
 
 export default Loading;
