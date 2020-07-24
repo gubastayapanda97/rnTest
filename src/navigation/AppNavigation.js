@@ -19,7 +19,11 @@ const AppNavigation = () => (
 				component={DrawerComponent}
 				name="Home"
 			/>
-			<Stack.Screen name="ModalList" component={ModalListScreen} />
+			<Stack.Screen 
+				options={{ headerShown: false }}
+				name="ModalList" 
+				component={ModalListScreen} 
+			/>
 		</Stack.Navigator>
 	</NavigationContainer>
 );

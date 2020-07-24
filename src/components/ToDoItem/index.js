@@ -4,7 +4,7 @@ import Swipeout from 'react-native-swipeout';
 
 import styles from './style';
 
-const ToDoItem = ({key, item, separators, deteleToDoItem}) => {
+const ToDoItem = ({item, separators, deteleToDoItem}) => {
   const swipeoutBtns = [
     {
       text: 'Удалить',
@@ -14,7 +14,7 @@ const ToDoItem = ({key, item, separators, deteleToDoItem}) => {
   ];
 
   return (
-    <View key={key} style={styles.container}>
+    <View style={styles.container}>
       <Swipeout right={swipeoutBtns} left={swipeoutBtns}>
         <View
           style={{

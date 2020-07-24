@@ -2,15 +2,22 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
+  },
+  goBackBtn: {
+    backgroundColor: 'rgba(0,0,0, 0.2)',
     alignItems: 'center',
     justifyContent: 'center'
   },
+  goBackText: {
+    margin: 15,
+    color: 'blue',
+    fontSize: 20
+  },
   modalContainer: {
-    backgroundColor: '#fff',
-    maxHeight: 400,
-    minWidth: 300,
-    paddingVertical: 20,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 });
 
